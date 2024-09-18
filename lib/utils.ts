@@ -1,7 +1,9 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-prototype-builtins */
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { type ClassValue, clsx } from "clsx";
-import  qs  from "qs";
+import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
 import { aspectRatioOptions } from "@/constants";
@@ -89,7 +91,7 @@ export const debounce = (func: (...args: any[]) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout | null;
   return (...args: any[]) => {
     if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func.apply(null, args), delay);
+    timeoutId = setTimeout(() => func(...args), delay);
   };
 };
 
